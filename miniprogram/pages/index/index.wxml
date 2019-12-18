@@ -1,0 +1,77 @@
+<scroll-view scroll-y style="height:{{scrollYHeight}}px" scroll-top="{{scrollTop}}" bindscroll="bindscroll">
+    <view class="main">
+        <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+            <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+                <swiper-item>
+                    <image src="{{item}}" class="slide-image" width="100%" />
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="search">
+            <navigator url="../search/search">
+                <view class="search-text">
+                    <icon class="weui-icon-search_in-box search-icon" type="search" size="14"></icon>
+                    搜 索
+                </view>
+            </navigator>
+        </view>
+        <view class="selected">
+            <view class="select-title">
+                <text>精选分类</text>
+            </view>
+            <view class="recommend">
+                <view class="recommend-item">
+                    <navigator url="../list/list">
+                        <image src="cloud://bzm-1sero.627a-bzm-1sero-1300712224/a1.jpg"></image>
+                        <view>
+                            <text>饼干</text>
+                        </view>
+                    </navigator>
+                </view>
+                <view class="recommend-item">
+                    <navigator url="../list/list">
+                    <image src="cloud://bzm-1sero.627a-bzm-1sero-1300712224/b1.jpg"></image>
+                    <view>
+                        <text>薯片</text>
+                    </view>
+                    </navigator>
+                </view>
+                <view class="recommend-item">
+                    <navigator url="../list/list">
+                    <image src="cloud://bzm-1sero.627a-bzm-1sero-1300712224/c1.jpg"></image>
+                    <view>
+                        <text>果干</text>
+                    </view>
+                    </navigator>
+                </view>
+                <view class="recommend-item">
+                    <navigator url="../list/list">
+                    <image src="cloud://bzm-1sero.627a-bzm-1sero-1300712224/d1.jpg"></image>
+                    <view>
+                        <text>坚果</text>
+                    </view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view class="newest">
+            <view class="newest-title">
+                <text>最近新品</text>
+            </view>
+            <view class="newest-box">
+                <view class="newest-list" wx:for="{{list}}" wx:key="id" wx:for-index="id">
+                    <navigator url="../details/details?id={{item.id}}">
+                        <image src="{{item.img}}"></image>
+                        <view class="newest-text">
+                            <text>{{item.title}}</text>
+                        </view>
+                        <view class="newest-text">
+                            <text>￥{{item.price}}</text>
+                        </view>
+                    </navigator>
+                </view>
+                <loading visible="{{hasMore}}"></loading>
+            </view>
+        </view>
+    </view>
+</scroll-view>

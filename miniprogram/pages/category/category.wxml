@@ -1,0 +1,69 @@
+<view class="main">
+    <view class="categroy-left">
+        <view wx:for="{{category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchTab" class="cate-list {{curIndex === index?'on':''}}">{{item.name}}</view>
+    </view>
+
+    <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+        <block wx:for="{{category}}" wx:for-index wx:key="id">
+            <view id="{{item.id}}" class="cate-box">
+                <view class="cate-banner">
+                    <image src="{{item.src}}"></image>
+                </view>
+                <view class="cate-title">
+                    <text>{{item.name}}</text>
+                </view>
+                <view class="product">
+                    <view class="product-list" wx:for="{{item.detail}}" wx:key="index" wx:for-item="val">
+                        <navigator url="../details/details?id={{val.id}}">
+                            <image src="{{val.img}}"></image>
+                            <view class="classname">
+                                <text>{{val.title}}</text>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <!-- <block>
+            <view id="aa" class="cate-box">
+                <view class="cate-banner">
+                    <image src="cloud://bzm-1sero.627a-bzm-1sero-1300712224/bg1.jpg"></image>
+                </view>
+                <view class="cate-title">
+                    <text>果味</text>
+                </view>
+                <view class="product">
+                    <view class="product-list">
+                        <navigator url="../list/list">
+                            <image src="cloud://bzm-1sero.627a-bzm-1sero-1300712224/c2.jpg"></image>
+                            <view class="classname">
+                                <text>梨花带雨 3个</text>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block>
+            <view id="bb" class="cate-box">
+                <view class="cate-banner">
+                    <image src="cloud://bzm-1sero.627a-bzm-1sero-1300712224/bg2.jpg"></image>
+                </view>
+                <view class="cate-title">
+                    <text>shucai</text>
+                </view>
+                <view class="product">
+                    <view class="product-list">
+                        <navigator url="../list/list">
+                            <image src="cloud://bzm-1sero.627a-bzm-1sero-1300712224/b2.jpg"></image>
+                            <view class="classname">
+                                <text>梨花带雨 3个</text>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </block> -->
+    </scroll-view>
+
+</view>
